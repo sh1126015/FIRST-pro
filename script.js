@@ -1,5 +1,4 @@
 document.getElementById('humanizeBtn').addEventListener('click', function() {
-    // Get the text from the input box
     let aiText = document.getElementById('aiInput').value;
     
     if (!aiText.trim()) {
@@ -7,15 +6,30 @@ document.getElementById('humanizeBtn').addEventListener('click', function() {
         return;
     }
 
-    // A simple algorithmic placeholder to humanize the text
-    // (Replaces common AI footprints with casual alternatives)
+    // Comprehensive list of AI words and casual human replacements
     let humanizedText = aiText
+        // Transition words
         .replace(/Furthermore,/gi, "Also,")
+        .replace(/Moreover,/gi, "Plus,")
         .replace(/In conclusion,/gi, "To wrap it up,")
-        .replace(/Testament to/gi, "Proof of")
-        .replace(/Delve into/gi, "Look into")
-        .replace(/Not only... but also/gi, "Both... and");
+        .replace(/Consequently,/gi, "So,")
+        .replace(/Therefore,/gi, "Because of that,")
+        
+        // Overused AI verbs and phrases
+        .replace(/delve into/gi, "look into")
+        .replace(/testament to/gi, "proof of")
+        .replace(/not only.*but also/gi, "both... and")
+        .replace(/it is crucial to/gi, "we need to")
+        .replace(/beacon of/gi, "example of")
+        .replace(/tapestry of/gi, "mix of")
+        .replace(/revolutionize/gi, "change")
+        .replace(/foster/gi, "build")
+        .replace(/utilize/gi, "use")
+        .replace(/ underscore /gi, " highlight ")
+        
+        // Casual sentence adjustments
+        .replace(/let's explore/gi, "let's look at")
+        .replace(/delves deep/gi, "goes deep");
 
-    // Output the changed text to the screen
     document.getElementById('humanOutput').innerText = humanizedText;
 });
